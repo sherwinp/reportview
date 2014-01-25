@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config version="1.0">
+<scope>
+<action id="ives_transcript">
+<params>
+<param name="objectId" required="true"></param>
+</params>
+<execution class="com.documentum.web.formext.action.LaunchComponent">
+<component>reportview</component>
+</execution>
+</action>
+</scope>
+</config>
