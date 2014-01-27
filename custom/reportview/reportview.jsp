@@ -27,19 +27,19 @@
         <a href="../../">go back</a><h1 style="text-align: center;">Income Verification Express Service</h1>
         <table width="95%" style="font-weight: bold;">
             <tr><td><label for="ParticipantId">Participant Id:</label></td> 
-                <td><%=ReportHandler.HSV("")%></td>
+                <td><%=ReportHandler.HSV(oData.participantId)%></td>
                 <td><label for="Date">Date:</label></td>
-                <td></td>
+                <td><%=ReportHandler.HSV(oData.reportDate)%></td>
             </tr>
             <tr><td><label for="ParticipantName">Participant Name:</label></td>
-                <td>&nbsp;</td>
+                <td><%=ReportHandler.HSV("***************")%></td>
                 <td><label for="Phone">Phone:</label><td>
-                <td></td>
+                <td><%=ReportHandler.HSV("###-###-####")%></td>
             </tr>
             <tr><td><label for="ParticipantEmail">Participant Email:</label></td>
-                <td>&nbsp;</td>
+                <td><%=ReportHandler.HSV("@@@@@@@@@@@@@@@")%></td>
                 <td><label for="FaxNumber">Fax Number:</label><td>
-                <td></td>
+                <td><%=ReportHandler.HSV(oData.participantFaxNumber)%></td>
             </tr>
         </table>
         <table class="discrep" cellpadding="0px" cellspacing="0px"  style="width:95%;border:1px solid black; margin: 0; padding: 0;">

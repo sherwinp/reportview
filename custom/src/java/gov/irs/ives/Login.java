@@ -3,43 +3,37 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package gov.irs.ives;
+
+import com.documentum.com.DfClientX;
 import com.documentum.fc.client.IDfClient;
+import com.documentum.fc.client.IDfSession;
 import com.documentum.fc.client.IDfSessionManager;
 import com.documentum.fc.common.DfException;
 import com.documentum.fc.common.DfLoginInfo;
 import com.documentum.fc.common.IDfLoginInfo;
+
 /**
  *
  * @author Administrator
  */
 public class Login {
-    	protected IDfSessionManager execute(IDfClient dfClient, String docBase,
-			String userName, String password, String domain) throws DfException {
 
-		if (docBase == null || userName == null)
+    IDfSession getSession(IDfSessionManager manager, IDfLoginInfo loginInfo, String docBase) throws DfException {
 
-			return null;
+        // now handle login info
+        DfClientX clientx = new DfClientX();
+        IDfClient dfClient = clientx.getLocalClient();
+        if (dfClient != null) {
 
-		if (dfClient != null)
+            manager = dfClient.newSessionManager();
 
-		{
-			IDfLoginInfo li = new DfLoginInfo();
+            manager.setIdentity(docBase, loginInfo);
+        }
+        if (manager == null) {
+            return null;
+        }
+        return manager.getSession(docBase);
 
-			li.setUser(userName);
-			li.setPassword(password);
-			li.setDomain(domain);
-
-			IDfSessionManager sessionMgr = dfClient.newSessionManager();
-
-			sessionMgr.setIdentity(docBase, li);
-
-			return sessionMgr;
-		}
-
-		return null;
-
-	}
-
+    }
 }

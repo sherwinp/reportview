@@ -8,6 +8,12 @@
 <execution class="com.documentum.web.formext.action.LaunchComponent">
 <component>reportview</component>
 </execution>
+<invocation>
+    <modalpopup>
+     <windowsize>large</windowsize>
+     <refreshparentwindow>never</refreshparentwindow>
+    </modalpopup>
+</invocation>
 </action>
 </scope>
 </config>

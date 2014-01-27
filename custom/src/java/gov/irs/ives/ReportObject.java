@@ -5,6 +5,8 @@
  */
 
 package gov.irs.ives;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 /**
@@ -18,7 +20,7 @@ public class ReportObject {
     public String participantPhone;
     public String participantFaxNumber;
     public String bacthNumber;
-    public Date todaysDate;
+    public String reportDate;
     
     public int exceptionRecordCount=-1;
     public String[] nameFirst;
@@ -27,4 +29,8 @@ public class ReportObject {
     public String[] taxPeriod;
     public String[] formNumber;
     public String[] exceptionString;
+    public String ReportDate(){
+        SimpleDateFormat outputFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+	return outputFormat.format(Calendar.getInstance().getTime());
+    }
 }
